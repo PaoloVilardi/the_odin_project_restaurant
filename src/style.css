@@ -16,32 +16,11 @@ body{
     background-color: bisque;
 }
 
-/* background: url("/src/img/background_hero.jpg") no-repeat fixed;
-    background-size: cover;
-    opacity: 75%;
-    height: 800px;
-    width: 100%; */
-/* .hero-section{
-    
-    position: relative;
-    height: 1000px;
+.hero-section{
+    height: 830px;
 }
 
-.hero-section::before{
-    content: ' ';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.6;
-    background-image: url("/src/img/background_hero.jpg");
-    background-repeat: no-repeat;
-    background-position: 50% 0;
-    background-size: cover;
-} */
-
+/* TODO FIX MANUAL TRANSITION */
 .slider-wrapper{
     position: relative;
     height: 80vh;
@@ -55,13 +34,49 @@ body{
     scroll-behavior: smooth;
 }
 
-.slider img{
+.slider .mySlides{
     flex: 1 0 100%;
     scroll-snap-align: start;
     object-fit: cover;
+    /* height: 830px; */
 }
 
-/* TODO FIX POINTS NOT AT THE BOTTOM, ADD TRANSITION AFTER FEW SECONDS AUTOMATIC */
+.mySlides img{
+    height: 830px;
+    width: 100%;
+    opacity: 0.8;
+}
+
+.slide-text{
+    font-size: 3rem;
+    color: white;
+    position: absolute;
+    bottom: 50%;
+    width: 100%;
+    text-align: center;
+}
+
+.active {
+    background-color: #717171;
+  }
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .text {font-size: 11px}
+  }
+
+/* TODO FIX MANUAL SLIDESHOW AND BETTER ANIMATION (LOOK THEM UP ON THE INTERNET)*/
 
 .slider-nav{
     display: flex;
@@ -146,4 +161,59 @@ body{
 }
 .info-icons li a svg:hover{
     transform: scale(1.1);
+}
+
+/* services */
+.services{
+    height: 1200px;
+    background-color: rgba(0, 255, 255, 0.445);
+}
+
+/* gallery */
+
+.photo-gallery{
+    height: 500px;
+    background-color: brown;
+    
+}
+
+.gallery-header{
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.photo-card-list{
+    margin: 10px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+}
+
+.photo{
+    justify-self: center;
+}
+
+.photo img{
+    width: 400px;
+}
+
+/* reviews */
+.review-lst{
+    background-color: #717171;
+}
+
+/* where on the map */
+.our-store{
+    background-color: darkgreen;
+}
+
+/* FAQs */
+.faq-section{
+    background-color: hotpink;
+}
+
+/* footer */
+.footer{
+    background-color: salmon;
 }

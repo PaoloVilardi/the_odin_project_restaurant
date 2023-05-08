@@ -16,13 +16,13 @@ body{
     background-color: bisque;
 }
 
-
-.hero-section{
-    /* background: url("/src/img/background_hero.jpg") no-repeat fixed;
+/* background: url("/src/img/background_hero.jpg") no-repeat fixed;
     background-size: cover;
     opacity: 75%;
     height: 800px;
     width: 100%; */
+/* .hero-section{
+    
     position: relative;
     height: 1000px;
 }
@@ -40,6 +40,50 @@ body{
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: cover;
+} */
+
+.slider-wrapper{
+    position: relative;
+    height: 80vh;
+}
+
+.slider{
+    display: flex;
+    aspect-ratio: 16 / 9;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.slider img{
+    flex: 1 0 100%;
+    scroll-snap-align: start;
+    object-fit: cover;
+}
+
+/* TODO FIX POINTS NOT AT THE BOTTOM, ADD TRANSITION AFTER FEW SECONDS AUTOMATIC */
+
+.slider-nav{
+    display: flex;
+    column-gap: 1rem;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.slider-nav a{
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: var(--text-color);
+    opacity: 75%;
+    transition: opacity ease 0.25s;
+}
+
+.slider-nav a:hover{
+    opacity: 1;
 }
 
 
@@ -47,7 +91,9 @@ body{
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
     align-items: center;
-    position: relative;
+    position: fixed;
+    top: 0;
+    width: 100%;
     z-index: 1;
 }
 .logo{

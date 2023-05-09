@@ -165,8 +165,33 @@ body{
 
 /* services */
 .services{
-    height: 1200px;
-    background-color: rgba(0, 255, 255, 0.445);
+    padding: 30px;
+    position: relative;
+    
+}
+.services-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 5fr;
+    gap: 50px;
+}
+.services-title{
+    font-size: 2rem;
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+.services-explanation{
+    grid-column: 1/2;
+    grid-row: 2/3;
+    font-size: 1.3rem;
+}
+.services-img{
+    grid-row: 1/3;
+    justify-self: center;
+    max-width: 500px;
+}
+.services-img img{
+    width: 100%;
 }
 
 /* gallery */
@@ -174,13 +199,16 @@ body{
 .photo-gallery{
     height: 500px;
     background-color: brown;
+    padding: 30px;
     
 }
 
 .gallery-header{
     width: 100%;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
 .photo-card-list{
@@ -199,21 +227,165 @@ body{
 }
 
 /* reviews */
+.review-section{
+    background-color: #ffff;
+    padding: 30px;
+}
+.review-header{
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
 .review-lst{
-    background-color: #717171;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.review-card{
+    background-color: var(--text-color);
+    padding: 20px;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.review-card:hover{
+    transform: scale(1.03);
+    transition: all ease-in-out 0.3s;
+}
+
+.review-name{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.review-profile-img img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.review-rating{
+   color: #f9d71c;
 }
 
 /* where on the map */
 .our-store{
-    background-color: darkgreen;
+    border: 2px solid black;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.store-card{
+    background-color: #f4f4f4;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.3);
+    padding: 30px;
+    display: flex;
+    gap: 20px;
+}
+
+.store-img{
+    width: 600px;
+    height: auto;
+}
+
+.store-img img{
+    width: 100%;
+}
+
+.store-address, .store-phone, .store-opening-hours{
+    line-height: 1.5;
+    padding-bottom: 10px;
+}
+
+.temp-btn button{
+    color: black;
 }
 
 /* FAQs */
 .faq-section{
-    background-color: hotpink;
+    background-color: white;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.faq-title{
+    padding-bottom: 30px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.faq-lst{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.faq-card{
+    background-color: #f4f4f4;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+    width: 500px;
+    transition: 0.3s;
+    padding: 30px;
+}
+
+.faq-question{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 30px;
+}
+
+.faq-question p{
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.faq-response{
+    visibility: hidden;
+    opacity: 0;
+    max-height: 0;
+    transition: 0.3s;
+    transform-origin: top;
+    transform: scaleY(0);
+    
+}
+
+.show {
+    transform: scaleY(1);
+    visibility: visible;
+    opacity: 1;
+    max-height: fit-content;
+}
+
+.arrow{
+    transform: rotate(180deg);
+    transition: 0.3s ease;
+}
+
+.faq-card:hover{
+    background-color: #b9b9b9;
 }
 
 /* footer */
 .footer{
-    background-color: salmon;
+    background-color: black;
+    color: #f4f4f4;
+    padding: 30px;
+}
+
+.footer-info{
+    font-weight: 200;
 }

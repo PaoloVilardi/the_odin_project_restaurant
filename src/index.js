@@ -19,3 +19,14 @@ function showSlides() {
   dots[slideIndex-1].className += " active";
   setTimeout(showSlides, 10000); // Change image every 2 seconds
 }
+
+
+
+document.querySelectorAll('.faq-card').forEach(item =>{
+  item.addEventListener('click', ()=>{
+    let response = item.querySelector('.faq-response');
+    let arrow = item.querySelector('.fa-chevron-down');
+    response.classList.toggle('show');
+    arrow.classList.toggle('arrow');
+  })
+})

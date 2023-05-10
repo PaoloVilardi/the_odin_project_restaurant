@@ -1,6 +1,8 @@
 @font-face {
-    font-family: "inter";
-    src: url("/src/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf");
+    /* font-family: "inter";
+    src: url("/src/fonts/Inter/Inter-VariableFont_slnt\,wght.ttf"); */
+    font-family: "morgen";
+    src: url("/src/fonts/morgen-font/MorgenRegular-ywMP5.otf");
 }
 :root{
     --text-color: #f4f4f4;
@@ -10,23 +12,26 @@
 *{
     margin: 0;
     padding: 0;
-    font-family: "inter";
+    /* font-family: "inter"; */
+    font-family: "morgen";
 }
 body{
-    background-color: bisque;
+    background-color: #f4f4f4;
 }
 
 .hero-section{
-    height: 830px;
+    height: 100vh;
 }
 
 /* TODO FIX MANUAL TRANSITION */
 .slider-wrapper{
     position: relative;
-    height: 80vh;
+    height: 100%;
 }
 
 .slider{
+    height: 100%;
+    width: 100%;
     display: flex;
     aspect-ratio: 16 / 9;
     overflow-x: auto;
@@ -38,11 +43,12 @@ body{
     flex: 1 0 100%;
     scroll-snap-align: start;
     object-fit: cover;
-    /* height: 830px; */
+    height: 100%;
+    overflow: hidden;
 }
 
 .mySlides img{
-    height: 830px;
+    height: 100%;
     width: 100%;
     opacity: 0.8;
 }
@@ -54,6 +60,7 @@ body{
     bottom: 50%;
     width: 100%;
     text-align: center;
+    
 }
 
 .active {
@@ -65,11 +72,27 @@ body{
     animation-name: fade;
     animation-duration: 1.5s;
   }
+
+  .scale{
+    animation: myAnim 1.5s ease 0s 1 normal forwards;
+  }
   
   @keyframes fade {
-    from {opacity: .4} 
+    from {opacity: .6} 
     to {opacity: 1}
   }
+
+  @keyframes myAnim {
+	0% {
+		opacity: 0;
+		transform: translateY(-250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
   
   /* On smaller screens, decrease text size */
   @media only screen and (max-width: 300px) {
@@ -77,12 +100,13 @@ body{
   }
 
 /* TODO FIX MANUAL SLIDESHOW AND BETTER ANIMATION (LOOK THEM UP ON THE INTERNET)*/
+/* TODO GALLERY https://bholmes.dev/blog/a-shiny-on-hover-effect-that-follows-your-mouse-css/ */
 
 .slider-nav{
     display: flex;
     column-gap: 1rem;
     position: absolute;
-    bottom: 0;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 1;
@@ -110,20 +134,28 @@ body{
     top: 0;
     width: 100%;
     z-index: 1;
+    transition: 1s;
 }
+
+.header:hover, .scrolled{
+    background-color: rgb(164, 216, 108, 1);
+}
+
+
+
 .logo{
     grid-column: 1/2;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     justify-content: center;
 }
 .logo img{
-    width: 200px;
+    width: 100px;
     height: auto;
 }
 .tab-lst{
     grid-column: 2/3;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     justify-content: center;
 }
@@ -147,7 +179,7 @@ body{
 }
 .info-icons{
     grid-column: 3/4;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     justify-content: center;
 }
@@ -198,7 +230,6 @@ body{
 
 .photo-gallery{
     height: 500px;
-    background-color: brown;
     padding: 30px;
     
 }
@@ -278,7 +309,7 @@ body{
 
 /* where on the map */
 .our-store{
-    border: 2px solid black;
+    /* border: 2px solid black; */
     background-color: white;
     display: flex;
     justify-content: center;
@@ -381,7 +412,7 @@ body{
 
 /* footer */
 .footer{
-    background-color: black;
+    background-color: #3d723f;
     color: #f4f4f4;
     padding: 30px;
 }

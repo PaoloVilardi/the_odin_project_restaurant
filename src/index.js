@@ -30,3 +30,16 @@ document.querySelectorAll('.faq-card').forEach(item =>{
     arrow.classList.toggle('arrow');
   })
 })
+
+const header = document.querySelector('.header');
+
+document.addEventListener('scroll', function(){
+  // Get the scroll position
+  let scrollPos = window.pageYOffset;
+  
+  if ( scrollPos > 100 ) {
+    header.classList.add('scrolled');
+  } else {
+    header.classList.remove('scrolled');
+  }
+})

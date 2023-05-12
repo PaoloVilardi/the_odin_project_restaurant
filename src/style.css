@@ -17,6 +17,7 @@
 }
 body{
     background-color: #f4f4f4;
+    overflow-x: hidden;
 }
 
 .hero-section{
@@ -100,7 +101,6 @@ body{
   }
 
 /* TODO FIX MANUAL SLIDESHOW AND BETTER ANIMATION (LOOK THEM UP ON THE INTERNET)*/
-/* TODO GALLERY https://bholmes.dev/blog/a-shiny-on-hover-effect-that-follows-your-mouse-css/ */
 
 .slider-nav{
     display: flex;
@@ -197,8 +197,12 @@ body{
 
 /* services */
 .services{
-    padding: 30px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 200px;
+    padding-right: 200px;
     position: relative;
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.3);
     
 }
 .services-grid{
@@ -229,34 +233,97 @@ body{
 /* gallery */
 
 .photo-gallery{
-    height: 500px;
     padding: 30px;
-    
 }
 
 .gallery-header{
     width: 100%;
     text-align: center;
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
+}
+
+.gallery-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* margin: 10% auto; */
+}
+
+#back-btn, #next-btn{
+    cursor: pointer;
+    margin: 40px;
 }
 
 .photo-card-list{
     margin: 10px;
-    display: grid;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
     gap: 10px;
-    grid-template-columns: repeat(4, minmax(200px, 1fr));
+    scrollbar-width: none;
 }
 
+
 .photo{
-    justify-self: center;
+    flex: none;
+    position: relative;
+}
+
+.photo:hover::after{
+    opacity: 0.2;
+}
+
+/* TODO SOLVE THE FOLLOWING: AFTER ELEMENT MAKES THE DIV TOO HIGH, ABSOLUTE  POS  MIGHT BE THE PROBLEM */
+.photo::after{
+    content: '';
+    position: absolute;
+    top: calc(var(--y, 0) * 1px - 200px);
+    left: calc(var(--x, 0) * 1px - 200px);
+    width: 100%;
+    height: 100%;
+/* make sure the gradient isn't too bright */
+    opacity: 0;
+/* add a circular gradient that fades out on the edges */
+    background: radial-gradient(white, #3984ff00 80%);
+    transition: opacity 0.2s;     
 }
 
 .photo img{
     width: 400px;
 }
 
+.photo-description{
+    text-align: center;
+    margin-top: 30px;
+    line-height: 2;
+    font-size: 1.2rem
+}
+
+.photo-subtitle{
+    visibility: hidden;
+    color: #222;
+}
+
+.visible{
+    visibility: visible;
+    /* transition: all 2s ease-in-out;
+    transform: scale(1.5); */
+    animation: myAnim2 1.2s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnim2 {
+	0% {
+		opacity: 0;
+		transform: translateY(-50px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
 /* reviews */
 .review-section{
     background-color: #ffff;
@@ -309,7 +376,7 @@ body{
 
 /* where on the map */
 .our-store{
-    /* border: 2px solid black; */
+    box-shadow: 2px 2px 30px rgba(0, 0, 0, 0.3);
     background-color: white;
     display: flex;
     justify-content: center;

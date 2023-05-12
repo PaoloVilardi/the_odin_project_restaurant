@@ -49,9 +49,10 @@ document.querySelectorAll('.photo').forEach(item =>{
   item.addEventListener('mousemove', (e) => {
     // const readout = item.querySelector('.readout');
     const { x, y } = item.getBoundingClientRect();
-    const itemStyle = window.getComputedStyle(item);
-    let itemWidth = parseInt(itemStyle.getPropertyValue('width'));
-    let itemHeight = parseInt(itemStyle.getPropertyValue('height'));
+    const imgStyle = window.getComputedStyle(item.querySelector('.photo-img'));
+    let itemWidth = parseInt(imgStyle.getPropertyValue('width'));
+    let itemHeight = parseInt(imgStyle.getPropertyValue('height'));
+    // SOLVE HERE: IMG WIDTH INSTEAD OF PHOTO WIDTH SEEMS NOT WORKING
     let computedX = Math.max(e.clientX - parseInt(x), 0);
     let computedY = Math.max(e.clientY - parseInt(y), 0);
     if(computedX < itemWidth && computedY < itemHeight){
@@ -75,11 +76,10 @@ document.querySelectorAll('.photo').forEach(item =>{
   // });
   item.addEventListener('mouseenter', (e)=>{
     subTitle.classList.toggle('visible');
-    console.log("AAAAAAAAAAAAAAAAAAAAA");
+
   });
   item.addEventListener('mouseleave', (e)=>{
     subTitle.classList.toggle('visible');
-    console.log("AAAAAAAAAAAAAAAAAAAAA");
   })
 });
 
@@ -88,17 +88,17 @@ const backBtn = document.getElementById("back-btn");
 const nextBtn = document.getElementById("next-btn");
 const photo = photoList.querySelector('.photo');
 
-// photoList.addEventListener("wheel", (e)=>{
-//   e.preventDefault();
-//   photoList.scrollLeft += e.deltaY;
-// });
+photoList.addEventListener("wheel", (e)=>{
+  e.preventDefault();
+});
 
 nextBtn.addEventListener('click', ()=>{
+  
   photoList.style.scrollBehavior = "smooth";
-  photoList.scrollLeft += photo.offsetWidth;
+  photoList.scrollLeft += photo.offsetWidth + parseInt(window.getComputedStyle(photoList).gap);
 });
 backBtn.addEventListener('click', ()=>{
   photoList.style.scrollBehavior = "smooth";
-  photoList.scrollLeft -= photo.offsetWidth;
+  photoList.scrollLeft -= (photo.offsetWidth + parseInt(window.getComputedStyle(photoList).gap));
 });
 
